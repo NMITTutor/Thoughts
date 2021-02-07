@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\toddc\\source\\repos\\thoughts\\thoughts\\cSharpFizzBuzz.csproj": {}
+    "C:\\Users\\toddc\\source\\Thoughts\\thoughts\\cSharpFizzBuzz.csproj": {}
   },
   "projects": {
-    "C:\\Users\\toddc\\source\\repos\\thoughts\\thoughts\\cSharpFizzBuzz.csproj": {
+    "C:\\Users\\toddc\\source\\Thoughts\\thoughts\\cSharpFizzBuzz.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\toddc\\source\\repos\\thoughts\\thoughts\\cSharpFizzBuzz.csproj",
+        "projectUniqueName": "C:\\Users\\toddc\\source\\Thoughts\\thoughts\\cSharpFizzBuzz.csproj",
         "projectName": "cSharpFizzBuzz",
-        "projectPath": "C:\\Users\\toddc\\source\\repos\\thoughts\\thoughts\\cSharpFizzBuzz.csproj",
+        "projectPath": "C:\\Users\\toddc\\source\\Thoughts\\thoughts\\cSharpFizzBuzz.csproj",
         "packagesPath": "C:\\Users\\toddc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\toddc\\source\\repos\\thoughts\\thoughts\\obj\\",
+        "outputPath": "C:\\Users\\toddc\\source\\Thoughts\\thoughts\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\toddc\\source\\repos\\thoughts\\fSharpFizzBuzz\\fSharpFizzBuzz.fsproj": {}
+    "C:\\Users\\toddc\\source\\Thoughts\\fSharpFizzBuzz\\fSharpFizzBuzz.fsproj": {}
   },
   "projects": {
-    "C:\\Users\\toddc\\source\\repos\\thoughts\\fSharpFizzBuzz\\fSharpFizzBuzz.fsproj": {
+    "C:\\Users\\toddc\\source\\Thoughts\\fSharpFizzBuzz\\fSharpFizzBuzz.fsproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\toddc\\source\\repos\\thoughts\\fSharpFizzBuzz\\fSharpFizzBuzz.fsproj",
+        "projectUniqueName": "C:\\Users\\toddc\\source\\Thoughts\\fSharpFizzBuzz\\fSharpFizzBuzz.fsproj",
         "projectName": "fSharpFizzBuzz",
-        "projectPath": "C:\\Users\\toddc\\source\\repos\\thoughts\\fSharpFizzBuzz\\fSharpFizzBuzz.fsproj",
+        "projectPath": "C:\\Users\\toddc\\source\\Thoughts\\fSharpFizzBuzz\\fSharpFizzBuzz.fsproj",
         "packagesPath": "C:\\Users\\toddc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\toddc\\source\\repos\\thoughts\\fSharpFizzBuzz\\obj\\",
+        "outputPath": "C:\\Users\\toddc\\source\\Thoughts\\fSharpFizzBuzz\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"

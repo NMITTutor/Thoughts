@@ -44,7 +44,7 @@ FizzBuzzer* makeFizzBuzzers(int pFrom, int pTo) {
     int numberOfFizzBuzzers = (pTo - pFrom) + 1;
     FizzBuzzer* fizzBuzzersArray = (FizzBuzzer *)malloc(sizeof(FizzBuzzer) * numberOfFizzBuzzers);
 
-    fizzBuzzersArray = fillFizzBuzzesArray(fizzBuzzersArray, 1, pTo);
+    fizzBuzzersArray = fillFizzBuzzesArray(fizzBuzzersArray, pFrom, pTo);
 
     return fizzBuzzersArray;
 }
