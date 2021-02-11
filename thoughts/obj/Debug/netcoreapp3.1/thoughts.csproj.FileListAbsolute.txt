@@ -1,0 +1,13 @@
+C:\Users\toddc\source\repos\thoughts\thoughts\obj\Debug\netcoreapp3.1\thoughts.csprojAssemblyReference.cache
+C:\Users\toddc\source\repos\thoughts\thoughts\obj\Debug\netcoreapp3.1\thoughts.AssemblyInfoInputs.cache
+C:\Users\toddc\source\repos\thoughts\thoughts\obj\Debug\netcoreapp3.1\thoughts.AssemblyInfo.cs
+C:\Users\toddc\source\repos\thoughts\thoughts\obj\Debug\netcoreapp3.1\thoughts.csproj.CoreCompileInputs.cache
+C:\Users\toddc\source\repos\thoughts\thoughts\bin\Debug\netcoreapp3.1\thoughts.exe
+C:\Users\toddc\source\repos\thoughts\thoughts\bin\Debug\netcoreapp3.1\thoughts.deps.json
+C:\Users\toddc\source\repos\thoughts\thoughts\bin\Debug\netcoreapp3.1\thoughts.runtimeconfig.json
+C:\Users\toddc\source\repos\thoughts\thoughts\bin\Debug\netcoreapp3.1\thoughts.runtimeconfig.dev.json
+C:\Users\toddc\source\repos\thoughts\thoughts\bin\Debug\netcoreapp3.1\thoughts.dll
+C:\Users\toddc\source\repos\thoughts\thoughts\bin\Debug\netcoreapp3.1\thoughts.pdb
+C:\Users\toddc\source\repos\thoughts\thoughts\obj\Debug\netcoreapp3.1\thoughts.dll
+C:\Users\toddc\source\repos\thoughts\thoughts\obj\Debug\netcoreapp3.1\thoughts.pdb
+C:\Users\toddc\source\repos\thoughts\thoughts\obj\Debug\netcoreapp3.1\thoughts.genruntimeconfig.cache

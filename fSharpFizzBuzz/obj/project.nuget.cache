@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "gnNX20Ak56v0TtGSa0AvpHNi3sUZSmhEI/oPBSq9ElqyA6masqHLoQzX/8jCIQ/H8w6QJypsutN0vy3SyytLhg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\toddc\\source\\repos\\thoughts\\fSharpFizzBuzz\\fSharpFizzBuzz.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\toddc\\.nuget\\packages\\fsharp.core\\5.0.0\\fsharp.core.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
