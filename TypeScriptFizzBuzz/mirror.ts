@@ -1,23 +1,23 @@
 
 // Loop free mirror in TypeScript
 
-function mirror<T>(pArray: T[]) : T[]
+const mirror = <T>(pArray: T[]) : T[] =>
 {
     
     let count: number = 0;
 
-    function reverse (ary : T[]) : T[]
+    const reverse = (ary : T[]) : T[] =>
     {
-        function r(i :number, a:T[]):T[] {
+        const r = (i :number, a:T[]):T[] => {
             return i == 0 ? [a[i]] :
             [a[i]].concat(r(i-1,a))
         }
         return r(ary.length -1 , ary);
     }
     
-    function firstN(n :number, ary : T[]) : T[]
+    const firstN = (n :number, ary : T[]) : T[] =>
     {
-        function next(i :number, a:T[]):T[] {
+        const next = (i :number, a:T[]):T[] => {
             return i == 0 ? [a[i]] :
                    next(i-1,a).concat([a[i]])
         }
