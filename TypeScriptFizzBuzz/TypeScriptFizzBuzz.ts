@@ -29,9 +29,11 @@ class FizzBuzz implements AFizzBuzz {
     } 
      
     constructor(value :number, fizzbuzz : string){
-
+        this.value = value;
+        this.fizzbuzz = fizzbuzz;
     }
 }
 
-
+let aFizzBuzz = new FizzBuzz(0,"0");
+aFizzBuzz.showMe(FizzSelector.FizzBuz);
 
