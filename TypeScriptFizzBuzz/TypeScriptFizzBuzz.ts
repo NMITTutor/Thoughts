@@ -83,7 +83,10 @@ function FizzBuzzMaker(i : number){
 }
 
 const someFizzBuzzes = new Seq<FizzBuzz>(1,15,FizzBuzzMaker);
-console.log(someFizzBuzzes);
+
+someFizzBuzzes.forEach(function(fb:FizzBuzz){
+    fb.showMe(FizzSelector.Both)
+})
 
 
 

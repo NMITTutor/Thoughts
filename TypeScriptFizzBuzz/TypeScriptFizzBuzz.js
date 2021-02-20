@@ -78,3 +78,6 @@ function FizzBuzzMaker(i) {
 }
 var someFizzBuzzes = new Seq(1, 15, FizzBuzzMaker);
 console.log(someFizzBuzzes);
+someFizzBuzzes.forEach(function (fb) {
+    fb.showMe(FizzSelector.Both);
+});
