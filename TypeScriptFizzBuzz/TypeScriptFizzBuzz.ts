@@ -1,6 +1,12 @@
-let a: string = "Hello, Nothing here yet";
+// Here 
+// - a contrived tutu with enums badly select a method
+// - a Seq of type T is an extended array
+// - some fun with putting the type into Seq - not quite right 
+
+let a: string = "FizzBuzz Sequence FizzBuzzers use thier showMe";
 
 console.log(a);
+
 enum FizzSelector {
    Value, FizzBuz,Both,
 }
