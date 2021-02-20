@@ -2,7 +2,7 @@ let a: string = "Hello, Nothing here yet";
 
 console.log(a);
 enum FizzSelector {
-   Value, FizzBuz,
+   Value, FizzBuz,Both,
 }
 interface AFizzBuzz {
     value : number;
@@ -28,12 +28,63 @@ class FizzBuzz implements AFizzBuzz {
 
     } 
      
-    constructor(value :number, fizzbuzz : string){
+    constructor(value :number){
         this.value = value;
-        this.fizzbuzz = fizzbuzz;
+        
+           if ((value % 3 == 0) && (value % 5 == 0) )this.fizzbuzz =  "fizzbuzz";
+           else if (value % 3 == 0) this.fizzbuzz = "fizz" 
+           else if (value % 5 == 0) this.fizzbuzz = "buzz" 
+           else this.fizzbuzz = value.toString();
+        
     }
 }
 
-let aFizzBuzz = new FizzBuzz(0,"0");
-aFizzBuzz.showMe(FizzSelector.FizzBuz);
+class Seq<T> extends Array{
+    start : number;
+     end : number;
+
+    private   next = function(i :number,pTo : number, newValue: (i: number) => T) {
+        if(i <= pTo){
+            this[i] =  newValue(i);
+            console.log(this[i]);
+            this.next(i+1,pTo, newValue);
+        }
+    }
+    constructor(pFrom: number,pTo :number, newValue: (i: number) => T ){
+       
+       
+        super();
+        
+        this.start = pFrom;
+        this.end = pTo;
+        console.log(pFrom,"  ",pTo)
+        this.next(pFrom,pTo,newValue);  
+    }
+
+
+
+}
+
+// Some tests
+let aFizzBuzz = new FizzBuzz(1);
+aFizzBuzz.showMe(FizzSelector.Both);
+
+let bFizzBuzz = new FizzBuzz(3);
+bFizzBuzz.showMe(FizzSelector.Both);
+
+let cFizzBuzz = new FizzBuzz(5);
+cFizzBuzz.showMe(FizzSelector.Both);
+
+let dFizzBuzz = new FizzBuzz(15);
+dFizzBuzz.showMe(FizzSelector.Both);
+
+function FizzBuzzMaker(i : number){
+    return new FizzBuzz(i);
+}
+
+const someFizzBuzzes = new Seq<FizzBuzz>(1,15,FizzBuzzMaker);
+console.log(someFizzBuzzes);
+
+
+
 
