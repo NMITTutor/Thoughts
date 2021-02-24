@@ -24,8 +24,7 @@ Array.seq = function (pFrom, pTo) {
 
 // FizzBuzz on any int Fizz and any int Buzz, 
 // - in the range (from, to )
-function FizzBuzz(pIntFizz, pIntBuzz,
-    pIntFrom, pIntTo) {
+function FizzBuzz(pIntFizz, pIntBuzz,pIntFrom, pIntTo) {
     return Array.seq(pIntFrom, pIntTo).map(
         x => {
             let result = { number: x, fizzbuzz: x.toString() }
@@ -34,10 +33,10 @@ function FizzBuzz(pIntFizz, pIntBuzz,
                 case x % pIntFizz == 0 && x % pIntBuzz == 0:
                     result.fizzbuzz = "FizzBuzz";
                     break;
-                case x % 3 == 0:
+                case x % pIntFizz == 0:
                     result.fizzbuzz = "Fizz";
                     break;
-                case x % 5 == 0:
+                case x % pIntBuzz == 0:
                     result.fizzbuzz = "Buzz";
                     break;
                 default: result = result; // Gah!
