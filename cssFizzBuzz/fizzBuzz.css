@@ -1,0 +1,30 @@
+/* nothing here 
+  
+    Looking at :active to see if it can cause and increment that results in a change in display
+
+
+*/
+body {
+    counter-reset: seq;                       /* https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Lists_and_Counters/Using_CSS_counters Set a counter named 'section', and its initial value is 0. */
+    counter-set: seq +1;
+  } 
+   /*
+button#next:active {
+    counter-increment: seq;                   
+
+}
+*/
+button#previous:active {
+    counter-set: seq -1;
+}
+
+div.fizzBuzz::before  {
+    content: "Fizz or Buzz? " counter(seq) ": "; 
+}
+
+div.fizzBuzz:active  {
+    counter-increment: seq;
+    content: "Fizz or Buzz? " counter(seq) ": "; 
+}
+
+

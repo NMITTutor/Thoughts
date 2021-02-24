@@ -10,3 +10,16 @@ C:\Users\toddc\source\repos\thoughts\thoughts\obj\Debug\netcoreapp3.1\cSharpFizz
 C:\Users\toddc\source\repos\thoughts\thoughts\obj\Debug\netcoreapp3.1\cSharpFizzBuzz.dll
 C:\Users\toddc\source\repos\thoughts\thoughts\obj\Debug\netcoreapp3.1\cSharpFizzBuzz.pdb
 C:\Users\toddc\source\repos\thoughts\thoughts\obj\Debug\netcoreapp3.1\cSharpFizzBuzz.genruntimeconfig.cache
+C:\Users\toddc\source\Thoughts\thoughts\bin\Debug\netcoreapp3.1\cSharpFizzBuzz.exe
+C:\Users\toddc\source\Thoughts\thoughts\bin\Debug\netcoreapp3.1\cSharpFizzBuzz.deps.json
+C:\Users\toddc\source\Thoughts\thoughts\bin\Debug\netcoreapp3.1\cSharpFizzBuzz.runtimeconfig.json
+C:\Users\toddc\source\Thoughts\thoughts\bin\Debug\netcoreapp3.1\cSharpFizzBuzz.runtimeconfig.dev.json
+C:\Users\toddc\source\Thoughts\thoughts\bin\Debug\netcoreapp3.1\cSharpFizzBuzz.dll
+C:\Users\toddc\source\Thoughts\thoughts\bin\Debug\netcoreapp3.1\cSharpFizzBuzz.pdb
+C:\Users\toddc\source\Thoughts\thoughts\obj\Debug\netcoreapp3.1\cSharpFizzBuzz.csprojAssemblyReference.cache
+C:\Users\toddc\source\Thoughts\thoughts\obj\Debug\netcoreapp3.1\cSharpFizzBuzz.AssemblyInfoInputs.cache
+C:\Users\toddc\source\Thoughts\thoughts\obj\Debug\netcoreapp3.1\cSharpFizzBuzz.AssemblyInfo.cs
+C:\Users\toddc\source\Thoughts\thoughts\obj\Debug\netcoreapp3.1\cSharpFizzBuzz.csproj.CoreCompileInputs.cache
+C:\Users\toddc\source\Thoughts\thoughts\obj\Debug\netcoreapp3.1\cSharpFizzBuzz.dll
+C:\Users\toddc\source\Thoughts\thoughts\obj\Debug\netcoreapp3.1\cSharpFizzBuzz.pdb
+C:\Users\toddc\source\Thoughts\thoughts\obj\Debug\netcoreapp3.1\cSharpFizzBuzz.genruntimeconfig.cache
