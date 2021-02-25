@@ -41,5 +41,30 @@ fizzBuzzers(){
 
 # Check for arguments
 fizzBuzzers $1 $2;
+echo " "
+echo "More bashy";
 
-echo "Finished";
+# this is heaps slower, because ... ?
+function bashyFizz(){
+  cat <&0 > seq.lst
+  linesLeft=$(<seq.lst wc -l) 
+  if [ $linesLeft -gt 0 ] 
+   then
+    first=$(head -n1 < seq.lst)
+    tail -n+2 seq.lst> rest.lst
+    fizzBuzz $first 
+    cat rest.lst |  bashyFizz
+  else
+    rm rest.lst
+    rm seq.lst
+  fi
+ 
+
+}
+
+function bashyFizzBuzzers(){
+  # Need to check arguments
+  seq $1 1 $2 |  bashyFizz
+}
+
+bashyFizzBuzzers $1 $2 
