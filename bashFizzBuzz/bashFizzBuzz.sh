@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+echo "Functional recursive "
 fizzBuzz(){ 
     # need to check arguments
     mod3Value=$(($1 % 3 ));
@@ -50,10 +51,10 @@ function bashyFizz(){
   linesLeft=$(<seq.lst wc -l) 
   if [ $linesLeft -gt 0 ] 
    then
-    first=$(head -n1 < seq.lst)
-    tail -n+2 seq.lst> rest.lst
+    first=$(<seq.lst head -n1 )
+    <seq.lst tail -n+2  > rest.lst
     fizzBuzz $first 
-    cat rest.lst |  bashyFizz
+    <rest.lst bashyFizz # recursive call, plus could pipe it here
   else
     rm rest.lst
     rm seq.lst
