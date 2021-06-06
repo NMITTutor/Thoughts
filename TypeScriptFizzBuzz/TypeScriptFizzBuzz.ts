@@ -44,19 +44,26 @@ class FizzBuzz implements AFizzBuzz {
         
     }
 }
+type Constructor<T> = new (...args: any[]) => T;
 
 class Seq<T> extends Array{
     start : number;
      end : number;
-    t
-    private   next = function(i :number,pTo : number, newValue: (i: number) => T) {
+     ctor : Constructor<T>;
+     private getNext =  (i : number): T =>{
+        return new (this.ctor)(i);
+     }
+     
+    private   next = function(i :number,pTo : number){//}, newValue: (i: number) => T) {
         if(i <= pTo){
-            this[i] =  newValue(i); // <--- I'd like to do a constructor here
+            this[i] =  new this.getNext(i); // <--- I'd like to do a constructor here
             console.log(this[i]);
-            this.next(i+1,pTo, newValue);
+            this.next(i+1,pTo)// newValue);
         }
     }
-    constructor(pFrom: number,pTo :number, newValue: (i: number) => T ){
+
+    
+    constructor(pFrom: number,pTo :number){//}, newValue: (i: number) => T ){
        
        
         super();
@@ -64,7 +71,7 @@ class Seq<T> extends Array{
         this.start = pFrom;
         this.end = pTo;
         console.log(pFrom,"  ",pTo)
-        this.next(pFrom,pTo,newValue);  
+        this.next(pFrom,pTo);//,newValue);  
     }
 
 
@@ -88,11 +95,18 @@ function FizzBuzzMaker(i : number){
     return new FizzBuzz(i);
 }
 
-const someFizzBuzzes = new Seq<FizzBuzz>(1,15,FizzBuzzMaker);
+const someFizzBuzzes = new Seq<FizzBuzz>(1,15);//,FizzBuzzMaker);
 
 someFizzBuzzes.forEach(function(fb:FizzBuzz){
     fb.showMe(FizzSelector.Both)
 })
+
+
+// let getRandomInt = function(max :number) {
+//     return (Math.floor(Math.random() * Math.floor(max)))+1;
+//   }
+  
+//   console.log("The Team to talk is : ",getRandomInt(2));
 
 
 
