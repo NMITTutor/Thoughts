@@ -259,7 +259,7 @@ fn korero_mai(){
     enum TePuTaka{
         a, e, h, i, k, m, n, ng, o, p, r, t, u, w, wh, // Pūriki
         A, E, H, I, K, M, N, NG, O, P, R, T, U, W, WH, // Pūmatua
-        Nah
+        Nah(char)
 
     }
     impl fmt::Display for TePuTaka {
@@ -293,7 +293,7 @@ fn korero_mai(){
                 TePuTaka::U => write!(f, "{}","U"),
                 TePuTaka::W => write!(f, "{}","W"),
                 TePuTaka::WH => write!(f, "{}","WH"),
-                TePuTaka::Nah => write!(f, "{}","Nah"),
+                TePuTaka::Nah(a_char) => write!(f, "{} ={}",a_char,"Nah"),
                 _ => write!(f, "{}","Not known"),
             }
         }
@@ -314,7 +314,7 @@ fn korero_mai(){
         }
     }
  
-    #[derive(Debug)]
+    #[derive(Clone,Debug)]
     struct Kupu{
         pub nga_teputaka : Vec<TePuTaka>,
         pub kiwaha: Tua, // kīwaha
@@ -330,51 +330,129 @@ fn korero_mai(){
         }
     }
 
+    fn e_teputaka(c:char) -> TePuTaka{
+        match c {
+            'a' =>  TePuTaka::a,
+            'e' =>  TePuTaka::e,
+            'h' =>  TePuTaka::h,
+            'i' =>  TePuTaka::i,
+            'k' =>  TePuTaka::k,
+            'm' =>  TePuTaka::m,
+            'n' =>  TePuTaka::n,
+            'g' =>  TePuTaka::ng,
+            'o' =>  TePuTaka::o,
+            'p' =>  TePuTaka::p,
+            'r' =>  TePuTaka::r,
+            't' =>  TePuTaka::t,
+            'u' =>  TePuTaka::u,
+            'w' =>  TePuTaka::w,
+            'A' =>  TePuTaka::A,
+            'E' =>  TePuTaka::E,
+            'H' =>  TePuTaka::H,
+            'I' =>  TePuTaka::I,
+            'K' =>  TePuTaka::K,
+            'M' =>  TePuTaka::M,
+            'N' =>   TePuTaka::N,
+            'G' =>  TePuTaka::NG,
+            'O' => TePuTaka::O,
+            'P' => TePuTaka::P,
+            'R' => TePuTaka::R,
+            'T' => TePuTaka::T,
+            'U' => TePuTaka::U,
+            'W' => TePuTaka::W,
+         
+             _ => TePuTaka::Nah(c)
+
+        }
+    }
+    fn token_strs(in_str : String) -> Vec<String> {
+        #[derive(Copy, Clone)]
+        #[derive(Debug)]
+        enum TokenState{
+            Tuatahi,Kupu, Literal //, Punctuation
+        }
+        let mut toks: Vec<String> = Vec::new(); 
+        let mut token: String = String::from("");
+        let mut state: TokenState = TokenState::Kupu;
+        let mut lit_start:char ='`'; // place holder
+        for c in in_str.chars() {
+            let teputaka:TePuTaka = e_teputaka(c);
+            match state {
+                TokenState::Tuatahi =>{
+                    match teputaka{
+                        TePuTaka::Nah(a_char) => state = {
+                            match a_char {
+                                '"' | '\'' => {lit_start = a_char; token.push(a_char);TokenState::Literal}, // this recognizes literals 
+                                '.'| '?' |',' | '-' | '+' | '/' | '*' | '=' | '>' | '<' | '!' | '@' | '#' | '$' | '%' | '^' | 
+                                '&' | '(' | ')' | '{'|'}' | '[' |']' | '|' | '\\' | ':' | ';'  =>  // "/" can not match ?? why
+                                {  
+                                 toks.push(String::from(format!("{}",a_char))); // here we need to consume a punctuation mark, or an operator
+                                 TokenState::Tuatahi
+                                },
+                                _ => TokenState::Tuatahi //  skips any char we're not interested in
+                            }
+                        },
+                        _ => state = {
+                            token.push(c);
+                            TokenState::Kupu
+                        }
+                    }
+                },
+                TokenState::Kupu => {
+                    match teputaka {
+                        TePuTaka::Nah(a_char) => state = { // end of kupu
+                            toks.push(token.clone());
+                            token = String::from("");
+                            
+                            match a_char{
+                                '"' | '\'' =>{ token.push(a_char); TokenState::Literal}, // put literal character at the front
+                                '.'| '?' |',' | '-' | '+' | '/' | '*' | '=' | '>' | '<' | '!' | '@' | '#' | '$' | '%' | '^' | 
+                                '&' | '(' | ')' | '{'|'}' | '[' |']' | '|' | '\\' | ':' | ';'  => 
+                                {  
+                                 toks.push(String::from(format!("{}",a_char))); // here we need to consume a punctuation mark, or an operator
+                                 TokenState::Tuatahi
+                                },
+                                _ => TokenState::Tuatahi
+                            }
+                            
+                        },
+                        _ => state = {
+                            token.push(c);
+                            TokenState::Kupu
+                        }
+                    }
+                },
+                TokenState::Literal => state = {
+                    match c {
+                       '\'' | '"' => { // end of Literal - this is consumed
+                            if c == lit_start { 
+                                token.push(c);
+                                toks.push(token.clone());
+                                token = String::from("");
+                                TokenState::Tuatahi
+                            }
+                            else { token.push(c); TokenState::Literal}
+                        },
+                        _ => { token.push(c); TokenState::Literal}
+                    }
+                },
+                _ => {}
+            }
+        }
+        toks
+    } 
     fn whakaae_kupu() -> Vec<Kupu>{
         let mut kupa_nga : Vec<Kupu> = Vec::new();
 
         let whakauru = accept_string("Kia ora, me aha ahau?".to_string());
         
-        for ru in whakauru.trim().split_whitespace(){
+        for ru in token_strs(whakauru){ //})whakauru.trim().split_whitespace(){
             let ru = String::from(ru);
             let mut teputaka_nga = Vec::new();
             let mut state = 0;
 
             for c in ru.chars(){
-                let teputaka:TePuTaka =
-                    match c {
-                        'a' =>  TePuTaka::a,
-                        'e' =>  TePuTaka::e,
-                        'h' =>  TePuTaka::h,
-                        'i' =>  TePuTaka::i,
-                        'k' =>  TePuTaka::k,
-                        'm' =>  TePuTaka::m,
-                        'n' =>  TePuTaka::n,
-                        'g' =>  TePuTaka::ng,
-                        'o' =>  TePuTaka::o,
-                        'p' =>  TePuTaka::p,
-                        'r' =>  TePuTaka::r,
-                        't' =>  TePuTaka::t,
-                        'u' =>  TePuTaka::u,
-                        'w' =>  TePuTaka::w,
-                        'A' =>  TePuTaka::A,
-                        'E' =>  TePuTaka::E,
-                        'H' =>  TePuTaka::H,
-                        'I' =>  TePuTaka::I,
-                        'K' =>  TePuTaka::K,
-                        'M' =>  TePuTaka::M,
-                        'N' =>   TePuTaka::N,
-                        'G' =>  TePuTaka::NG,
-                        'O' => TePuTaka::O,
-                        'P' => TePuTaka::P,
-                        'R' => TePuTaka::R,
-                        'T' => TePuTaka::T,
-                        'U' => TePuTaka::U,
-                        'W' => TePuTaka::W,
-                     
-                         _ => TePuTaka::Nah
-
-                    };
+                let teputaka:TePuTaka = e_teputaka(c);
                     match state {
                         0 => {
                             match teputaka{
