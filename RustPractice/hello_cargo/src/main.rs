@@ -333,6 +333,7 @@ fn korero_mai(){
     fn e_teputaka(c:char) -> TePuTaka{
         match c {
             'a' =>  TePuTaka::a,
+            'ā' =>  TePuTaka::ā,
             'e' =>  TePuTaka::e,
             'h' =>  TePuTaka::h,
             'i' =>  TePuTaka::i,
@@ -365,6 +366,8 @@ fn korero_mai(){
 
         }
     }
+
+    
     fn token_strs(in_str : String) -> Vec<String> {
         #[derive(Copy, Clone)]
         #[derive(Debug)]
@@ -389,6 +392,10 @@ fn korero_mai(){
                                  toks.push(String::from(format!("{}",a_char))); // here we need to consume a punctuation mark, or an operator
                                  TokenState::Tuatahi
                                 },
+                                '0'..='9' => {  
+                                    toks.push(String::from(format!("{}",a_char))); // here we need to consume a punctuation mark, or an operator
+                                    TokenState::Tuatahi
+                                   },
                                 _ => TokenState::Tuatahi //  skips any char we're not interested in
                             }
                         },
@@ -412,6 +419,10 @@ fn korero_mai(){
                                  toks.push(String::from(format!("{}",a_char))); // here we need to consume a punctuation mark, or an operator
                                  TokenState::Tuatahi
                                 },
+                                '0'..='9' => {  
+                                    toks.push(String::from(format!("{}",a_char))); // here we need to consume a punctuation mark, or an operator
+                                    TokenState::Tuatahi
+                                   },
                                 _ => TokenState::Tuatahi
                             }
                             
