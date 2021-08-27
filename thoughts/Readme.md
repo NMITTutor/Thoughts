@@ -1,1 +1,1 @@
-This is the original C# FizzBizz
+This is the original C# FizzBuzz
