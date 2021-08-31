@@ -4,8 +4,8 @@ if(empty($_SERVER["HTTPS"])){
 }
 else {
         // getting very dangerous here perhaps ...
-        $UserName = "todd";
-        $Password = "Zero53211&&"; 
+        $UserName = "aname";
+        $Password = "**********"; 
 	$cleanCMD = escapeshellcmd (".pamperl.pl ".$UserName." ".$Password);
         system($cleanCMD,$loginJSN);
         echo rtrim($loginJSN,'0');
