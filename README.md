@@ -5,5 +5,5 @@ This a is a messy repo that stores a number of versions of FizzBuzz, and a ventu
 
 In SQL, C (in C++), F#, JavaScript, C# (the original thoughts folder), Python, Bash , TypeScript, PHP and Rust.
 
-The solution worked for Visual Studio, in the end this is a collections of "thoughts".
+The solution worked for Visual Studio, in the end these are collections of "thoughts".
 
